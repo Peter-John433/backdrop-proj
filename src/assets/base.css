@@ -15,6 +15,77 @@ body{
    margin-right: auto;
 }
 
+/* app components */
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.cont h1{
+  color: blue;
+  font-size: 3rem;
+}
+
+.welcome{
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+/* closed */
+
+.backdrop{
+  position: fixed;
+  top: 0%;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.modal{
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   align-items: center;
+   margin: 5rem auto;
+   background-color: white;
+   padding: 10px;
+   border-radius: 16px;
+   height: 200px;
+}
+
+.modal h1{
+   color: blue;
+   font-size: 1.5rem;
+   text-transform: capitalize;
+   text-decoration: underline;
+}
+
+.modal p{
+   margin-top: 2rem;
+   text-transform: capitalize;
+   font-weight: bold;
+}
+
+textarea{
+   width: 400px;
+   margin-top: 1rem;
+   border-radius: 16px;
+   resize: none;
+}
+
+.myTheme{
+    background-color: red;
+    color: white;
+ }
+.myTheme h1{
+  color: white;
+  margin-top: 2rem;
+}
+
 @media screen and (min-width: 576px) {
    .container{
      width: 540px;
@@ -25,11 +96,27 @@ body{
   .container{
     width: 90%;
   }
+
+  .backdrop{
+     padding: 0%;
+  }
+  
+  .modal{
+    width: 500px;
+  }
+
+  .modal h1{
+    font-size: 2rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
   .container{
     width: 90%;
+  }
+
+  .cont h1{
+     font-size: 4rem;
   }
 }
 

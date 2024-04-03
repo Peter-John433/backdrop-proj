@@ -4,11 +4,19 @@
         {{ title }}
       </h1>
   </div>
-    <Modal 
-      :header="header" 
-      :text="text" 
-      :theme="theme" 
-    />
+    <div v-if="showModal">
+      <Modal 
+        :header="header" 
+        :text="text" 
+        :theme="theme" 
+        @close="closeBack"
+      />
+    </div>
+    <div class="welcome">
+        welcome...
+    </div>
+
+    <button @click="toggleModal">show modal</button>
 </template>
 
 <script>
@@ -21,24 +29,35 @@ export default{
         title: 'Modal',
         header: 'give away for everyone',
         text: 'grab yours now!',
-        theme: 'feel'
+        theme: 'feel',
+        showModal: false
       }
+    },
+
+    methods:{
+       toggleModal(){
+         this.showModal = !this.showModal;
+       },
+       closeBack(){
+          this.showModal = !this.showModal
+       }
     }
 }
 
 </script>
 
 <style scoped>
-   .cont{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 2rem auto;
-   }
-
-   h1{
-      color: blue;
-      font-size: 4rem;
+   button{
+      background-color: green;
+      color: white;
+      border: 1px solid white;
+      outline: 2px solid green;
+      display: block;
+      text-align: center;
+      width: 100px;
+      margin: 1rem auto;
+      padding: 10px 0;
+      cursor: pointer;
    }
 </style>
 
@@ -60,4 +79,32 @@ export default{
    => methods function in vue is use to store all functions in vue instance
    => props is a method used to send data from parent to child components
 
+   Props
+
+   props pass data from parent straight into the child component
+   -data pass can be of any of the datatypes 
+   -props cand be sent as one time or two way  binding 
+   
+   note: to make your code look more cleaner and professional, we should always bind our props to variables declear in the data instance.
+   props is always use here to change the theme of the modal and make it look more customizable 
+
+   EVENTS
+
+   ==> events in vue  are like callbacks that you can listen for when something happens on an element. events  are triggered by elements and they can trigger anything from a function declared in the script or in an expression delcared in inline handler.
+     events help us interact with our website effectively,here we'll be looking at few things about events
+     this things includes:
+     i. types of events
+     ii. events directives
+     iii. emit() function
+     iv. custom event
+     v. event modifiers
+
+
+     ==> types of events includes:
+      i inline handler
+      ii. methods handler
+
+      ==> events directive is use to make something happen when an event occurs on an element. i.e the v-on directive which can also be short handed to @
+
+      ==> emit function $emit() = is use to pass custom event to a parent comparent
  -->
