@@ -8,12 +8,10 @@
                 class="modal" 
                 :class="{ myTheme : theme === 'feel' }"
             >
-                <h1>
-                    {{ header }}
-                </h1>
-                <p>
-                    {{ text }}
-                </p>
+                <slot></slot>
+                <div class="links">
+                    <slot name="links"></slot>
+                </div>
             </div>
         </div>
     </div>
@@ -21,7 +19,7 @@
 
 <script>
    export default{
-        props:['header', 'text', 'theme'],
+        props:['theme'],
         methods:{
             closeBackDrop(){
                 this.$emit('close');

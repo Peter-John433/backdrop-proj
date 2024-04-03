@@ -65,16 +65,9 @@ body{
 }
 
 .modal p{
-   margin-top: 2rem;
+   margin-top: 1rem;
    text-transform: capitalize;
    font-weight: bold;
-}
-
-textarea{
-   width: 400px;
-   margin-top: 1rem;
-   border-radius: 16px;
-   resize: none;
 }
 
 .myTheme{
@@ -84,6 +77,19 @@ textarea{
 .myTheme h1{
   color: white;
   margin-top: 2rem;
+}
+
+.links{
+   margin-top: 2rem;
+   text-transform: capitalize;
+}
+.links a{
+    padding: 10px 16px;
+    margin: 1rem;
+    text-transform: capitalize;
+    border: 1px solid white;
+    color: white;
+    border-radius: 6px;
 }
 
 @media screen and (min-width: 576px) {
@@ -103,6 +109,9 @@ textarea{
   
   .modal{
     width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .modal h1{

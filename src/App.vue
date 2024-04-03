@@ -4,33 +4,65 @@
         {{ title }}
       </h1>
   </div>
-    <div v-if="showModal">
-      <Modal 
+  <!-- <div v-if="showModal">
+     <Modal 
         :header="header" 
         :text="text" 
         :theme="theme" 
         @close="closeBack"
       />
-    </div>
+  </div> -->
+    <Teleport to="#modal-el">
+      <div v-if="showModal">
+        <ModalSlot theme="feel" @close="toggleModal">
+            <h1>give away for everyone</h1>
+            <p>grab yours now!</p>
+
+          <template v-slot:links>
+            <div>
+              <a href="#">SignUp</a>
+              <a href="#">SignIn</a>
+            </div>
+          </template>
+        </ModalSlot>
+      </div>
+    </Teleport>
+
+    <!-- reusing component -->
+    <Teleport to=".modal-class">
+      <div v-if="showModal2" class="modal2">
+        <ModalSlot @close="toggleModal2">
+            <h1>great opportunity</h1>
+            <p>grab yours now!</p>
+        </ModalSlot>
+      </div>
+    </Teleport>
+   <!-- closed -->
     <div class="welcome">
         welcome...
     </div>
 
-    <button @click="toggleModal">show modal</button>
+    <div class="btn">
+      <button @click="toggleModal">show modal1</button>
+      <button @click="toggleModal2">show modal2</button>
+    </div>
 </template>
 
 <script>
- import Modal from './components/Modal.vue';
+//  import Modal from './components/Modal.vue';
+ import ModalSlot from './components/ModalSlot.vue';
 export default{
     name: 'App',
-    components: { Modal },
+    // components: { Modal },
+    components: { ModalSlot },
     data(){
       return{
         title: 'Modal',
-        header: 'give away for everyone',
-        text: 'grab yours now!',
-        theme: 'feel',
-        showModal: false
+        // header: 'give away for everyone',
+        // text: 'grab yours now!',
+        // theme: 'feel',
+        showModal: false,
+        showModal2: false
       }
     },
 
@@ -38,8 +70,8 @@ export default{
        toggleModal(){
          this.showModal = !this.showModal;
        },
-       closeBack(){
-          this.showModal = !this.showModal
+       toggleModal2(){
+          this.showModal2 = !this.showModal2;
        }
     }
 }
@@ -47,6 +79,12 @@ export default{
 </script>
 
 <style scoped>
+   .btn{
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 1rem;
+   }
    button{
       background-color: green;
       color: white;
@@ -54,10 +92,13 @@ export default{
       outline: 2px solid green;
       display: block;
       text-align: center;
-      width: 100px;
-      margin: 1rem auto;
-      padding: 10px 0;
+      
+      padding: 10px 16px;
       cursor: pointer;
+   }
+
+   .modal2 h1{
+      margin-top: 2rem;
    }
 </style>
 
