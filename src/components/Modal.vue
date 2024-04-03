@@ -1,11 +1,14 @@
 <template>
     <div>
         <div class="backdrop">
-            <div class="modal">
-                <h1>{{ modalTitle }}</h1>
-                <div>
+            <div class="modal" :class="{ myTheme : theme === 'feel' }">
+                <h1>{{ header }}</h1>
+                <p>
+                    {{ text }}
+                </p>
+                <!-- <div>
                     <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -13,6 +16,7 @@
 
 <script>
    export default{
+        props:['header', 'text', 'theme'],
         data(){
             return{
                 modalTitle: 'Modal'
@@ -33,16 +37,28 @@
   .modal{
      display: flex;
      flex-direction: column;
-     justify-content: center;
+     justify-content: start;
      align-items: center;
      /* height: 100%; */
-     margin-top: 5rem;
+     margin: 5rem auto;
+     width: 500px;
+     background-color: white;
+     padding: 10px;
+     border-radius: 16px;
+     height: 200px;
   }
 
   .modal h1{
-     color: white;
-     font-size: 2.7rem;
+     color: blue;
+     font-size: 2rem;
      text-transform: capitalize;
+     text-decoration: underline;
+  }
+
+  .modal p{
+     margin-top: 2rem;
+     text-transform: capitalize;
+     font-weight: bold;
   }
 
   textarea{
@@ -51,4 +67,12 @@
      border-radius: 16px;
      resize: none;
   }
+
+  .myTheme{
+      background-color: red;
+      color: white;
+   }
+.myTheme h1{
+    color: white;
+}
 </style>
