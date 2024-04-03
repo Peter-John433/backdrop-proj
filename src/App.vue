@@ -139,6 +139,8 @@ export default{
      iii. emit() function
      iv. custom event
      v. event modifiers
+     vi. slot
+     vii. teleport
 
 
      ==> types of events includes:
@@ -147,5 +149,19 @@ export default{
 
       ==> events directive is use to make something happen when an event occurs on an element. i.e the v-on directive which can also be short handed to @
 
-      ==> emit function $emit() = is use to pass custom event to a parent comparent
+      ==> emit function $emit() = is use to pass custom event to a parent comparent.
+       
+      VUE SLOTS
+      ==> slot is a placeholder that is use to pass content from parent to a child component, slot do not need registration or configuration like props.
+      ==> slot without a name is scalled a default slot 
+      ==> slot with a name is called a name slot 
+      ==> name slot is use to move the content from the parent component into a particular part in a child component, or it use to direct the location of a content in child component, furthermore name slot are use on components or templates, i.e a template can be define inside a component for a name slot to be render inside while content outside the name slot are regard as default slot.
+
+      note: when a component as no content in it't template tag  then that will be treated as a default slot.
+      
+      VUE TELEPORT
+
+      ==> teleport are use to send some element from one part of app to another part  of the application. teleport allow you to take a full contents from a vue app and render it outside the app with all styles and scripts intact.
+      teleport is very easy and simple to learn.
+      
  -->
